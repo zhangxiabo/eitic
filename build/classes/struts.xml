@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.devMode" value="true" />
+
+	
+	<!-- 大于100m -->
+	<constant name="struts.multipart.maxSize" value="104858000"></constant>
+
+	<package name="basicstruts2" extends="struts-default">
+
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
+		
+		<action name="login" class="org.pigeon.eitic.action.LoginAction" method="login">
+            <result name="log
+            in">/index.jsp</result>
+            <!-- 
+            <result name="sysadminLogin">/sys/sysadmin.jsp</result>
+            <result name="studentLogin">/student/student.jsp</result>
+            <result name="teacherLogin">/teacher/teacher.jsp</result>
+            <result name="deptadminLogin">/dept/deptadmin.jsp</result>
+             -->
+            <result name="mainpage">/main.jsp</result>
+		</action>
+		
+        <action name="logout" class="org.pigeon.eitic.action.LoginAction" method="logout">
+            <result name="logout">/index.jsp</result>
+        </action>
+        
+        <action name="notexist" class="org.pigeon.eitic.action.LoginAction" method="notexist">
+            <result name="notexist">/notexist.jsp</result>
+        </action>
+        
+        <action name="addnotice" class="org.pigeon.eitic.action.NoticeAction" method="submitNotice">
+            <result name="success">/notice.jsp</result>
+            <result name="notexist">/notexist.jsp</result>
+        </action>
+        
+        <action name="viewnotice" class="org.pigeon.eitic.action.NoticeAction" method="viewNotice">
+		    <result name="success">/viewnotice.jsp</result>
+            <result name="notexist">/notexist.jsp</result>
+		</action>
+		
+		<action name="morenotice" class="org.pigeon.eitic.action.NoticeAction" method="moreNotice">
+            <result name="success">/morenotice.jsp</result>
+            <result name="notexist">/notexist.jsp</result>
+        </action>
+        
+        <action name="adduser" class="org.pigeon.eitic.action.RegisterAction" method="getAllColleges">
+            <result name="success">/adduser.jsp</result>
+            <result name="notexist">/notexist.jsp</result>
+        </action>
+        
+        <action name="getdeptlist" class="org.pigeon.eitic.action.RegisterAction" method="getDeptList">
+            <result name="notexist">/notexist.jsp</result>
+        </action>
+        
+        <action name="getclasslist" class="org.pigeon.eitic.action.RegisterAction" method="getClassList">
+            <result name="notexist">/notexist.jsp</result>
+        </action>
+        
+        <action name="register" class="org.pigeon.eitic.action.RegisterAction" method="register">
+            <result name="notexist">/notexist.jsp</result>
+        </action>
+        
+        <action name="userinfo" class="org.pigeon.eitic.action.UserManageAction" method="getUserInfo">
+            <result name="success">/userinfo.jsp</result>
+            <result name="notexist">/notexist.jsp</result>
+        </action>
+        
+        <action name="modifypwd" class="org.pigeon.eitic.action.UserManageAction" method="modifypwd">
+            <result name="notexist">/notexist.jsp</result>
+        </action>
+        
+        <action name="modifycontact" class="org.pigeon.eitic.action.UserManageAction" method="modifyContact">
+		    <result name="notexist">/notexist.jsp</result>
+        </action>
+        
+        <action name="subtask" class="org.pigeon.eitic.action.TaskAction" method="toSubmitTaskPage">
+            <result name="notexist">/notexist.jsp</result>
+            <result name="success">/subtask.jsp</result>
+            <result name="taskdetail">/taskdetail.jsp</result>
+        </action>
+        
+        <action name="submittasktitle" class="org.pigeon.eitic.action.TaskAction" method="submitTaskTitle">
+            <result name="notexist">/notexist.jsp</result>
+            <result name="success">/success.jsp</result>
+            <result name="subtask">/subtask.jsp</result>
+        </action>
+        
+        <action name="approval" class="org.pigeon.eitic.action.ApprovalAction" method="approvalList">
+            <result name="notexist">/notexist.jsp</result>
+            <result name="success">/approval.jsp</result>
+        </action>
+        
+        <action name="taskdetail"  class="org.pigeon.eitic.action.TaskAction" method="getTaskDetail">
+            <result name="notexist">/notexist.jsp</result>
+            <result name="success">/taskdetail.jsp</result>
+        </action>
+        
+        <action name="updatestatus" class="org.pigeon.eitic.action.ApprovalAction" method="updateStatus">
+            <result name="notexist">/notexist.jsp</result>
+            <result name="success">/success.jsp</result>
+        </action>
+        
+        <action name="tasksoftea" class="org.pigeon.eitic.action.ApprovalAction" method="getTasksOfTea">
+            <result name="notexist">/notexist.jsp</result>
+            <result name="success">/taskoftea.jsp</result>
+        </action>
+        
+        <action name="modifypage" class="org.pigeon.eitic.action.TaskAction" method="toModifyPage">
+            <result name="success">/modifytask.jsp</result>
+            <result name="notexist">/notexist.jsp</result>
+        </action>
+        
+        <action name="updatetask" class="org.pigeon.eitic.action.TaskAction" method="updateTask">
+            <result name="success">/success.jsp</result>
+            <result name="notexist">/notexist.jsp</result>
+        </action>
+        
+        <action name="openreport" class="org.pigeon.eitic.action.ReportAction" method="toReportPage">
+            <result name="success">/openreport.jsp</result>
+        </action>
+        
+        <action name="subreport" class="org.pigeon.eitic.action.ReportAction" method="subReprot">
+            <result name="success">/success.jsp</result>
+            <result name="notexist">/notexist.jsp</result>
+        </action>
+        
+        <action name="viewreport" class="org.pigeon.eitic.action.ReportAction" method="viewReprot">
+            <result name="success">/success.jsp</result>
+            <result name="viewreport">/viewreport.jsp</result>
+            <result name="notexist">/notexist.jsp</result>
+        </action>
+        
+        <action name="inspection" class="org.pigeon.eitic.action.InspectAction" method="toInspectPage">
+            <result name="success">/inspect.jsp</result>
+            <result name="notexist">/notexist.jsp</result>
+        </action>
+        
+        <action name="subinspect" class="org.pigeon.eitic.action.InspectAction" method="subInspect">
+            <result name="success">/success.jsp</result>
+            <result name="notexist">/notexist.jsp</result>
+        </action>
+        
+        <action name="viewinspect" class="org.pigeon.eitic.action.InspectAction" method="viewInspect">
+            <result name="success">/success.jsp</result>
+            <result name="viewinspect">/viewinspect.jsp</result>
+            <result name="notexist">/notexist.jsp</result>
+        </action>
+        
+        <action name="uploadpaper" class="org.pigeon.eitic.action.UploadAction" method="uploadPaper">
+            <result name="success">/success.jsp</result>
+            <result name="input">/notexist.jsp</result>
+            
+            <param name="savePath">/paper</param>
+            <!-- 上传最大值 -->
+            <param name="maximumSize">104857600</param>
+        </action>
+        
+        <action name="mypaper" class="org.pigeon.eitic.action.UploadAction" method="toDownloadPage">
+            <result name="success">/success.jsp</result>
+            <result name="todownloadpage">/download.jsp</result>
+        </action>
+        
+        <action name="sendmess" class="org.pigeon.eitic.action.MessageAction" method="sendMessage">
+            <result name="success">/success.jsp</result>
+            <result name="input">/notexist.jsp</result>
+            <result name="notexist">/notexist.jsp</result>
+            
+            <param name="savePath">/attachment</param>
+            <!-- 上传最大值 -->
+            <param name="maximumSize">104857600</param>
+        </action>
+        
+        <action name="message" class="org.pigeon.eitic.action.MessageAction" method="toMessagePage">
+            <result name="notexist">/notexist.jsp</result>
+            <result name="messagePage">/message.jsp</result>
+            <result name="success">/success.jsp</result>
+        </action>
+        
+        <action name="tosend" class="org.pigeon.eitic.action.MessageAction" method="toSendPage">
+            <result name="notexist">/notexist.jsp</result>
+            <result name="success">/sendmess.jsp</result>
+        </action>
+        
+        <action name="detailmess" class="org.pigeon.eitic.action.MessageAction" method="messageDetail">
+            <result name="notexist">/notexist.jsp</result>
+            <result name="success">/viewmessage.jsp</result>
+        </action>
+        
+        <action name="deletemess" class="org.pigeon.eitic.action.MessageAction" method="deleteMessage">
+            <result name="notexist">/notexist.jsp</result>
+            <result name="success">/success.jsp</result>
+        </action>
+        
+        <action name="college" class="org.pigeon.eitic.action.CollegeAction" method="toCollegePage">
+            <result name="notexist">/notexist.jsp</result>
+            <result name="collegepage">/college.jsp</result>
+        </action>
+        
+        <action name="addcollege" class="org.pigeon.eitic.action.CollegeAction" method="addCollege">
+            <result name="notexist">/notexist.jsp</result>
+            <result name="success">/success.jsp</result>
+        </action>
+        
+        <action name="deletecoll" class="org.pigeon.eitic.action.CollegeAction" method="deleteCollege">
+            <result name="notexist">/notexist.jsp</result>
+            <result name="success">/success.jsp</result>
+        </action>
+        
+        <action name="dept" class="org.pigeon.eitic.action.DeptAction" method="toDeptPage">
+            <result name="todeptpage">/dept.jsp</result>
+        </action>
+        
+        <action name="adddept" class="org.pigeon.eitic.action.DeptAction" method="addDept">
+            <result name="notexist">/notexist.jsp</result>
+            <result name="success">/success.jsp</result>
+        </action>
+        
+        <action name="deletedept" class="org.pigeon.eitic.action.DeptAction" method="deleteDept">
+            <result name="notexist">/notexist.jsp</result>
+            <result name="success">/success.jsp</result>
+        </action>
+        
+        <action name="class" class="org.pigeon.eitic.action.ClassAction" method="toClassPage">
+            <result name="toclasspage">/class.jsp</result>
+        </action>
+        
+        <action name="addclass" class="org.pigeon.eitic.action.ClassAction" method="addClass">
+            <result name="notexist">/notexist.jsp</result>
+            <result name="success">/success.jsp</result>
+        </action>
+        
+        <action name="deleteclass" class="org.pigeon.eitic.action.ClassAction" method="deleteClass">
+            <result name="notexist">/notexist.jsp</result>
+            <result name="success">/success.jsp</result>
+        </action>        
+        
+        
+	</package>
+
+</struts>
